@@ -1,5 +1,8 @@
 ----bucket_challenge.py----
 
+--Assumptions--
+Assumes bucket sizes are integers (valid as even with decimals smaller units can be used).
+
 --Command Line Arguments--
 For passing command-line arguments, requires the array argument to be a string, so that, if one wanted to pass in the argument [1, 2, 3] for the bucket sizes and 2 for the target size, one would have to use:
 
