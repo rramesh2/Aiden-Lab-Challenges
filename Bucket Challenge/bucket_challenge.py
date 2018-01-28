@@ -9,7 +9,7 @@ Challenge 1A for Aiden Lab
 import sys
 import ast
 
-# In the case of the need for more recursive calls
+# In the case of the need for more recursive calls (standard at 1000)
 sys.setrecursionlimit(4000)
 
 def bucket_challenge(bucket_sizes, target_value):
@@ -25,16 +25,17 @@ def bucket_challenge(bucket_sizes, target_value):
     """
 
     if [bucket for bucket in bucket_sizes if target_value % bucket == 0]:
-        # Base case for if target value is a multiple of any bucket
+        # Base case for if target value is a multiple of any bucket size
 
         return True
 
     elif target_value < 0:
+        # Base case for if target value is negative
 
         return False
 
     else:
-        # Recursive case for if target_value > bucket_sizes for all buckets
+        # Recursive case for if target_value > 0 and not a multiple of any bucket size
 
         for bucket in bucket_sizes:
             # Recursion through subtraction of target_value by bucket size

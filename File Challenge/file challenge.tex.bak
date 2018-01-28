@@ -1,0 +1,52 @@
+\documentclass[12pt]{article}
+\usepackage{fancyhdr,graphicx,amsmath,amssymb, mathtools, scrextend, titlesec, enumitem}
+\usepackage[ruled,vlined]{algorithm2e}
+\include{pythonlisting}
+\usepackage{color, colortbl}
+\usepackage{multirow}
+\usepackage[normalem]{ulem}
+\usepackage{tabu,multirow}
+\usepackage[margin=1in]{geometry}
+
+\title{File Challenge Questions}
+\author{Santiago Garcia Acosta}
+
+\begin{document}
+\maketitle
+
+{\raggedleft{} \textbf{a.)}} An algorithm to solve this problem would be one that reads each file into a string with delimiters and then separates the string by spaces and new line delimiters, mapping the text at the beginning of lines (identifiers) to the text at the rest of their lines. The algorithm would then iterate over the mappings for each file and compare the keys (identifiers) of one file's maps to the keys of the other file. If they are found to be identical, then the algorithm will combine their mapped statements into a new statement. The identifier would then be mapped to the new statement in a new mapping for the file that is to be produced, and write the new file once all the identifiers for both files have been compared with one another.
+\\\\
+\textbf{b.)} \emph{Pseudocode:}
+
+\begin{algorithm}
+\caption{filechallenge}
+\KwIn{$file1$, $file2$ being file locations in the user's computer}
+\hrulefill
+
+\nl $string1 \gets$ result from reading $file1$ into a string with delimiters\;
+\nl $string2 \gets$ result from reading $file2$ into a string with delimiters\;
+\nl Initialize $map_1$ to an empty mapping\;
+\nl Initialize $map_2$ to an empty mapping\;
+\nl $iter \gets 0$\;
+\nl \For{$char \in string1$}{
+	\nl \If{$char = $ \textbackslash \texttt{nl}}{
+		\nl $idx1 \gets 0$\;
+		\nl $isident \gets 1$\;
+		\nl \For{$char1 \in string1[0:idx]$}{
+		\nl \If{$char1 = ""$}{
+				\nl \uIf{$isident = 1$}{
+				 \nl $id \gets string1[0: idx1]$ \;
+				 \nl $isident \gets 0$\;
+				 \nl $idx2 \gets idx1$\;
+					}
+				\nl \Else{
+					\nl $map1_{id} \gets string1[idx2:idx1] $\;
+				}
+			}
+			\nl $iter1 \gets iter1 + 1$\;
+		}
+	}
+	\nl $iter \gets iter + 1$\;
+}
+\end{algorithm}
+\end{document}
