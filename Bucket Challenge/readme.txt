@@ -8,4 +8,4 @@ For passing command-line arguments, requires the array argument to be a string, 
 --Additional Notes--
 Note that the implementation for this question uses a recursive method which, although conditionals were placed to avoid such a possibility, could lead to a stack overflow (or python's integrated recursion limit) for very large values. I have tested it on some very large values but to do so on all is clearly impossible. Hopefully this is never issue.
 
-Function runs on python 2.7
+Function runs on python 2.7 and test_cases runs with pytest.

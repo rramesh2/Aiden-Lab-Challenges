@@ -6,28 +6,39 @@ Santiago Garcia Acosta
 Aiden Lab Challenge 1A
 """
 
-import bucket_challenge
+import pytest
+from bucket_challenge import bucket_challenge
 
-# Should return True as 5 + 7 = 12
-print bucket_challenge.bucket_challenge([5, 7], 12)
+def test1():
+    # 5 + 7 = 12
+    assert bucket_challenge([5, 7], 12)
 
-# Should return True as 5 = 5
-print bucket_challenge.bucket_challenge([5, 7], 5)
+def test2():
+    # 5 = 5
+    assert bucket_challenge([5, 7], 5)
 
-# Should return True as 5 + 7 + 7 + 7 + 7 = 33
-print bucket_challenge.bucket_challenge([5, 7], 33)
+def test3():
+# 5 + 7 + 7 + 7 + 7 = 33
+    assert bucket_challenge([5, 7], 33)
 
-# Should return False as not possible
-print bucket_challenge.bucket_challenge([5, 7], 9)
+def test4():
+# not possible
+    assert not bucket_challenge([5, 7], 9)
 
-# Should return True as 2 + 17 = 19
-print bucket_challenge.bucket_challenge([2, 9, 17], 19)
+def test5():
+# 2 + 17 = 19
+    assert bucket_challenge([2, 9, 17], 19)
 
-# Should return False as negative
-print bucket_challenge.bucket_challenge([5, 7], -12)
+def test6():
+# negative
+    assert not bucket_challenge([5, 7], -12)
 
-# Should return True as 0 is always possible
-print bucket_challenge.bucket_challenge([5,7], 0)
+def test7():
+# 0 is always possible
+    assert bucket_challenge([5, 7], 0)
 
-# Should return True as (400000000 * 5) + (3 * 7) = 2000000021
-print bucket_challenge.bucket_challenge([5, 7], 2000000021)
+def test8():
+# (400000000 * 5) + (3 * 7) = 2000000021
+    assert bucket_challenge([5, 7], 2000000021)
+
+pytest.main()

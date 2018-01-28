@@ -41,5 +41,6 @@ def bucket_challenge(bucket_sizes, target_value):
 
             return bool(bucket_challenge(bucket_sizes, target_value - bucket))
 
+
 if len(sys.argv) > 1:
     print bucket_challenge(ast.literal_eval(sys.argv[1]), ast.literal_eval(sys.argv[2]))
