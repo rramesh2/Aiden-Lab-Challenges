@@ -41,4 +41,12 @@ def test8():
 # (400000000 * 5) + (3 * 7) = 2000000021
     assert bucket_challenge([5, 7], 2000000021)
 
+def test9():
+    # edge case for negative input
+    assert not bucket_challenge([-1], 2)
+
+def test10():
+    # edge case for no buckets
+    assert not bucket_challenge([], 3)
+
 pytest.main()

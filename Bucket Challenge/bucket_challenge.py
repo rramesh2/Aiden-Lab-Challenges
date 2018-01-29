@@ -24,7 +24,17 @@ def bucket_challenge(bucket_sizes, target_value):
     Output: True if the buckets can be used to reach the target value; False otherwise.
     """
 
-    if [bucket for bucket in bucket_sizes if target_value % bucket == 0]:
+    if not bucket_sizes:
+        # Edge case for if no buckets provided (if target value is 0 returns True)
+
+        return not target_value
+
+    elif [bucket for bucket in bucket_sizes if bucket < 0]:
+        # Edge case for if provided buckets are negative in size
+
+        return False
+
+    elif [bucket for bucket in bucket_sizes if target_value % bucket == 0]:
         # Base case for if target value is a multiple of any bucket size
 
         return True
