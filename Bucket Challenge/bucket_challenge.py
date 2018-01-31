@@ -21,7 +21,7 @@ def bucket_challenge(bucket_sizes, target_value):
     bucket; target_value, the desired overall amount of liquid to be attained with
     use of the buckets.
 
-    Output: True if the buckets can be used to reach the target value; False otherwise.
+    Output: True if the buckets can be used to reach the target value; False if otherwise.
     """
 
     if not bucket_sizes:
