@@ -50,7 +50,7 @@ def bucket_challenge(bucket_sizes, target_value):
         for bucket in bucket_sizes:
             # Recursion through subtraction of target_value by bucket size
 
-            return bool(bucket_challenge(bucket_sizes, target_value - bucket))
+            return bucket_challenge(bucket_sizes, target_value - bucket)
 
 
 if len(sys.argv) > 1:
