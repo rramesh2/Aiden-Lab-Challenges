@@ -25,28 +25,47 @@
 
 \nl $string1 \gets$ result from reading $file1$ into a string with delimiters\;
 \nl $string2 \gets$ result from reading $file2$ into a string with delimiters\;
-\nl Initialize $map_1$ to an empty mapping\;
-\nl Initialize $map_2$ to an empty mapping\;
-\nl $iter \gets 0$\;
+\nl Initialize $map1$ to an empty mapping\;
+\nl Initialize $map2$ to an empty mapping\;
+\nl $idx \gets 0$\;
 \nl \For{$char \in string1$}{
 	\nl \If{$char = $ \textbackslash \texttt{nl}}{
 		\nl $idx1 \gets 0$\;
-		\nl $isident \gets 1$\;
 		\nl \For{$char1 \in string1[0:idx]$}{
 		\nl \If{$char1 = ""$}{
-				\nl \uIf{$isident = 1$}{
 				 \nl $id \gets string1[0: idx1]$ \;
-				 \nl $isident \gets 0$\;
-				 \nl $idx2 \gets idx1$\;
-					}
-				\nl \Else{
-					\nl $map1_{id} \gets string1[idx2:idx1] $\;
-				}
+				 \nl $map1_{id} \gets string1[idx1 + 1:idx - 1]$\;
+				 \nl \textbf{break}\;
 			}
-			\nl $iter1 \gets iter1 + 1$\;
+			\nl $idx1 \gets idx1 + 1$\;
 		}
 	}
-	\nl $iter \gets iter + 1$\;
+	\nl $idx \gets idx + 1$\;
 }
+\nl $idx \gets 0$\;
+\nl \For{$char \in string2$}{
+	\nl \If{$char = $ \textbackslash \texttt{nl}}{
+		\nl $idx1 \gets 0$\;
+		\nl \For{$char1 \in string2[0:idx]$}{
+		\nl \If{$char1 = ""$}{
+				 \nl $id \gets string2[0: idx1]$ \;
+				 \nl $map2_{id} \gets string2[idx1 + 1:idx - 1]$\;
+				 \nl \textbf{break}\;
+			}
+			\nl $idx1 \gets idx1 + 1$\;
+		}
+	}
+	\nl $idx \gets idx + 1$\;
+}
+\nl $newstring \gets ""$\;
+\nl \For{$delim \in map1$}{
+	\nl \If{$delim \in map2$}{
+		\nl $newstring \gets delim + "" + map1_{delim} + "" + map2_{delim} + "$  \textbackslash $\texttt{nl}"$\;
+	}
+}
+\nl $newfile \gets $ generated file from $newstring$\;
+\nl \Return{$newfile$} \;
 \end{algorithm}
+\\\\
+The pros of this approach are that it is simple and easy to understand
 \end{document}
