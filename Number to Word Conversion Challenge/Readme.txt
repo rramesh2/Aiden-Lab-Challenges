@@ -1,6 +1,7 @@
 -----Read Me for num2wordmap.py----------
+Test cases in test_cases_numconv.py
 
-Runs on tkinter (for gui) and written for python 2.7.
+Runs on tkinter (for gui) and written for python 2.7. To run just run the file in the command line.
 
 
 -----Guide----
